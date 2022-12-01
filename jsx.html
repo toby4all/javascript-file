@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+   
+ <script
+  crossorigin 
+  src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin 
+src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv"></div>
+    <script type="text/babel">
+        function createUI(){
+            var divstyle ={
+            textAlign: "center",
+            padding: "20px",
+            boxShadow: "0 0 10px black",
+            backgroundColor:"#ff0abe",
+            margin:"50px auto",
+            width: "600px",
+            color:"white",
+         
+        }
+            var ui= (
+                <div style={divstyle}>
+                <h2>stated react with jsx</h2> 
+                <p>implementing react with jsx synthax</p> 
+                 </div>
+            );
+            ReactDOM.render(ui, document.getElementById("mydiv"))
+             };
+        createUI();
+    </script>
+    </div>
+</body>
+</html>
