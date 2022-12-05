@@ -1,26 +1,113 @@
 <html lang="en">
-<head>
-    <script crossorigin 
-    src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script 
-    crossorigin 
-    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-<body>
-   <div id="main"></div> 
-   <script type="text/babel">
-    function createcard(){
-        var divstyle={
-            width:"300px"
+  <head>
+    <style>
+        body{
+            margin: 0;
         }
-        var card = (<div>
-            <img src="" width="100%" height="300px"/>
-            <h2>Oluwatobi</h2>
-            <p>male</p>
-            </div>)
-            return card
-    }
-   </script>
-</body>
+    </style>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function navbar(){
+        var navstyle = {
+          backgroundColor: "black",
+          textAlign: "right",
+          padding: "20px",
+          
+        };
+        var astyle = {
+          textDecoration: "none",
+          color: "white",
+          marginRight: "20px"
+        };
+        return (
+          <div style={navstyle}>
+            <a style={astyle} href="">
+              Home
+            </a>
+            <a style={astyle} href="">services</a>
+            <a style={astyle} href="">Profile</a>
+            <a style={astyle} href="">Contact us</a>
+          </div>
+        );
+      }
+      function createcard(img, Name, gender){
+        var divstyle = {
+          width: "300px",
+          padding: "30px",
+          textAlign: "center",
+          boxShadow:"0 0 10px black",
+          marginTop:"70px"
+        };
+        var card = (
+          <div style={divstyle}>
+            <img src={img} width="100%" height="300px" />
+            <h2>{Name}</h2>
+            <p>{gender}</p>
+          </div>
+        );
+        return card;
+      }
+
+      function footer(){
+      var footerstyle={
+        color: "orange",
+        padding:"40px",
+        marginTop:"20px",
+        textAlign: "center",
+      };
+        return (
+          <div style={footerstyle}>
+            <h4>All copywright are reserved by tobby inc.</h4>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur,
+              aspernatur? Nostrum veniam molestias consequatur quis, debitis
+              libero saepe laboriosam impedit.
+            </p>
+          </div>
+        );
+      }
+      function main(){
+        var constyle={
+            display: "flex",
+            justifyContent: "space-evenly"
+        }
+        var container = (
+          <div>
+            {navbar()}
+            <div style={constyle}>
+              {createcard(
+                "https://i.pinimg.com/originals/e3/7e/0e/e37e0e25686c2139b281a57a5b4906f2.jpg",
+                "Oluwatobi",
+                "Male"
+              )}
+              {createcard(
+                "https://www.rhondaboyle.com/wp-content/uploads/2017/05/Man_black_professional-e1495580003270.jpeg",
+                "Sajan",
+                "Male"
+              )}
+              {createcard(
+                "https://i.pinimg.com/originals/f9/2d/a9/f92da9e8f055402408a18488943b0b84.jpg",
+                "Rahul",
+                "male"
+              )}
+            </div>
+            {footer()};
+          </div>
+        );
+        ReactDOM.render(container, document.getElementById("root"));
+      }
+      main()
+    </script>
+  </body>
 </html>
